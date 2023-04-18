@@ -28,4 +28,9 @@ puts "----------------"
 until items == "quit"
   puts "Which items would you like to buy today?"
   items = gets.chomp
+
+  if MYSHOP.key?(items)
+    puts "How many would you like?"
+    amount = gets.chomp.to_i
+  end
 end
