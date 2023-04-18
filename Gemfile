@@ -71,4 +71,4 @@ group :test do
   gem "webdrivers"
 end
 
-gem 'rspec-rails', '~> 3.9'
+gem 'rspec-rails', '~> 6.0.1'
