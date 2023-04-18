@@ -14,7 +14,7 @@ MYSHOP = {
 total_bill = 0
 # By calling Hash.new(0), I'm initalizing the basket with 0 items instead of nil
 shopping_basket = Hash.new(0)
-items = ""
+the_item = ""
 
 puts "Whats currently avaliable:"
 
@@ -25,9 +25,9 @@ end
 puts "----------------"
 
 # Loop which allows the users to add items to their basket and quit the terminal upon the input of "quit".
-until items == "quit"
+until the_item == "quit"
   puts "Which items would you like to today? (or hit enter to quit)"
-  items = gets.chomp
+  the_item = gets.chomp
 
   # A Condition to check the MYSHOP global variable as a key to which gets.chomps allows users to add to the empty hash basket.
   if MYSHOP.key?(the_item)
