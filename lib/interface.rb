@@ -18,7 +18,7 @@ items = ""
 
 puts "Whats currently avaliable:"
 
-myShop.each do |product, value |
+MYSHOP.each do |product, value |
   puts "(#{value[:product_code]}) | #{product} : €#{value[:price]}"
 end
 
