@@ -13,7 +13,7 @@ MYSHOP = {
 # The total bill variable will be 0 to start off with
 total_bill = 0
 # By calling Hash.new(0), I'm initalizing the basket with 0 items instead of nil
-shopping_basket = Hash.new(0)
+basket = Hash.new(0)
 the_item = ""
 
 puts "Whats currently avaliable:"
@@ -62,3 +62,16 @@ until the_item == "quit"
       puts "Sorry we don't have this item in store today"
   end
 end
+
+puts "-------BILL---------"
+
+# Product codes are created into an array to store the hash values as a string.
+# This allows me to the Join method for the amount of products added by a user
+product_codes = []
+basket.each do |items, amount|
+  total_bill += MYSHOP[items][:price] * amount
+  product_codes += [MYSHOP[items][:product_code]] * amount
+end
+
+puts "BASKET TOTAL |#{product_codes.join(', ')}| TOTAL PRICE: €#{total_bill.round(2)}"
+puts "--------------------"
