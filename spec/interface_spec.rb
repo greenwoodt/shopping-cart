@@ -1,7 +1,4 @@
 require 'interface'
-require 'rails_helper'
-require 'spec_helper'
-
 
 # First test of the global variable hash with products, stock and price.
 describe "#MYSHOP" do
@@ -25,10 +22,10 @@ describe "#MYSHOP" do
   end
 end
 
-RSpec.describe "#MYSHOP" do
-  it "iterates over each product and prints its product code, name, and price" do
-    expected_output = "(GR1) | Greentea : €3.11\n(SR1) | Strawberries : €5.0\n(CF1) | Coffee : €11.23\n"
-    expect { MYSHOP.each { |product, value| puts "(#{value[:product_code]}) | #{product} : €#{value[:price]}" } }
-      .to output(expected_output).to_stdout
-  end
+RSpec.describe "#display_items" do
+  expect { display_items }.to output(/Whats currently avaliable:/).to_stdout
+    MYSHOP.each do |product, value|
+      expect { display_items }.to output(/#{value[:product_code]}.*#{product}.*#{value[:price]}/).to_stdout
+    end
+  expect { display_items }.to output(/----------------/).to_stdout
 end
