@@ -10,19 +10,20 @@ MYSHOP = {
   "Coffee" => {product_code: "CF1", price: 11.23, stock: 50}
 }
 
+def display_items
+  puts "Whats currently avaliable:"
+  MYSHOP.each do |product, value |
+    puts "(#{value[:product_code]}) | #{product} : €#{value[:price]}"
+  end
+  puts "----------------"
+end
+
 # The total bill variable will be 0 to start off with
 total_bill = 0
 # By calling Hash.new(0), I'm initalizing the basket with 0 items instead of nil
 basket = Hash.new(0)
 the_item = ""
 
-puts "Whats currently avaliable:"
-
-MYSHOP.each do |product, value |
-  puts "(#{value[:product_code]}) | #{product} : €#{value[:price]}"
-end
-
-puts "----------------"
 
 # Loop which allows the users to add items to their basket and quit the terminal upon the input of "quit".
 until the_item == "quit"
