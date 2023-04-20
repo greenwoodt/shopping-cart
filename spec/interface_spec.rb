@@ -23,3 +23,11 @@ RSpec.describe "#MYSHOP" do
       expect(MYSHOP["Coffee"][:stock]).to eq(10)
     end
   end
+
+  RSpec.describe "#display_items" do
+    it "Displays the items available in the shop in the correct order" do
+      MYSHOP.each do |product, value|
+        expect { display_items }.to output(/#{value[:product_code]}.*#{product}.*#{value[:price]}/).to_stdout
+      end
+    end
+  end
