@@ -31,3 +31,36 @@ RSpec.describe "#MYSHOP" do
       end
     end
   end
+
+  RSpec.describe "#add_basket" do
+    before do
+      @basket = Hash.new(0)
+      @item = "Greentea"
+      @amount = 1
+    end
+
+    it "It adds items to the basket" do
+      add_basket(@basket, @item, @amount)
+      expect(@basket[@item]).to eq(2)
+    end
+
+    it "It adds a free Greentea when an even number of them are added" do
+      add_basket(@basket, @item, @amount)
+      expect(MYSHOP[@item][:price]).to eq(0.7775)
+    end
+
+    it "It adds a free Greentea when an odd number of them are added" do
+      add_basket(@basket, @item, 3)
+      expect(MYSHOP[@item][:price]).to eq(0.38875)
+    end
+
+    it "It modifies the price of Strawberries when more than 3 are added" do
+      add_basket(@basket, "Strawberries", 4)
+      expect(MYSHOP["Strawberries"][:price]).to eq(4.5)
+    end
+
+    it "It modifies the price of Coffee when more than 3 are added" do
+      add_basket(@basket, "Coffee", 3)
+      expect(MYSHOP["Coffee"][:price]).to eq(Rational(7.486666666666666))
+    end
+  end
