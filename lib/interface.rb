@@ -50,18 +50,6 @@ def add_basket(basket, item, amount)
   return total_bill
 end
 
-# By calling Hash.new(0), I'm initalizing the basket with 0 items instead of nil
-basket = Hash.new(0)
-the_item = ""
-
-# Loop which allows the users to add items to their basket and quit the terminal upon the input of "quit".
-until the_item == "quit"
-  puts "Which items would you like to today? (or hit enter to quit)"
-  the_item = gets.chomp
-end
-
-puts "-------BILL---------"
-
 def calculate_bill(basket)
   total_bill = 0
   product_codes = []
@@ -72,5 +60,30 @@ def calculate_bill(basket)
   return total_bill.round(2), product_codes
 end
 
-puts "BASKET TOTAL |#{product_codes.join(', ')}| TOTAL PRICE: €#{total_bill.round(2)}"
-puts "--------------------"
+def run_shopping
+  total_bill = 0
+  basket = Hash.new(0)
+  item = ""
+  display_items
+
+  loop do
+    puts "Which item would you like to buy today?"
+    item = gets.chomp
+
+    break if item == "quit"
+
+    puts "How many would you like?" if MYSHOP.key?(item)
+    amount = gets.chomp.to_i
+
+    add_basket(basket, item, amount)
+  end
+
+  total_bill, product_codes = calculate_bill(basket)
+
+  puts "-------BILL---------"
+  puts "BASKET-TOTAL |#{product_codes.join(', ')}| TOTAL-COST: €#{total_bill}"
+  puts "--------------------"
+
+end
+
+run_shopping
