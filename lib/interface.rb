@@ -1,9 +1,6 @@
-# The shopping-cart welcome message
-
 puts "Welcome to the Armenitiz shop!"
 puts "----------------"
 
-# The hash which contains the symbols of products with their prices including stock
 MYSHOP = {
   "Greentea" => {product_code: "GR1", price: 3.11, stock: 50},
   "Strawberries" => {product_code: "SR1", price: 5.00, stock: 50},
@@ -19,31 +16,35 @@ def display_items
 end
 
 def add_basket(basket, item, amount)
-  # A Condition to check the MYSHOP global variable as a key to which gets.chomps allows users to add to the empty hash basket.
   if MYSHOP.key?(item)
     if MYSHOP[item][:stock] >= amount
       basket[item] += amount
-      # The CEO condition which checks an item is Greentea and is in the basket. the basket gets an extra tea and stock is removed
+
       if item == "Greentea"
         basket[item] += amount
         MYSHOP[item][:stock] -= amount
-        # If an even no. of Greenteas are added to the basket this modifies the price accordingly.
+
         if basket[item].even?
           MYSHOP[item][:price] = MYSHOP[item][:price] / 2
         else
-          # If an odd number of Greenteas are added, the code only charges 1 as an example adding 1 will have two in the basket but will equal the cost of 1.
           total_bill += MYSHOP[item][:price] / 2
         end
-        # The COO condition which checks more than 3 Strawberries are in the basket.
-        elsif basket["Strawberries"] >= 3
-          MYSHOP["Strawberries"][:price] = 4.5
-        # The VP of engineering discounted coffee taking into account Rational used to get 2/3's off.
-        elsif basket["Coffee"] >= 3
-          MYSHOP["Coffee"][:price] = MYSHOP["Coffee"][:price] * Rational(2, 3)
       end
+
+      if basket["Strawberries"] >= 3
+        MYSHOP["Strawberries"][:price] = 4.5
+      end
+
+      if basket["Coffee"] >= 3
+        MYSHOP["Coffee"][:price] = MYSHOP["Coffee"][:price] * Rational(2, 3)
+      end
+    else
+      puts "Sorry we don't have enough #{item} in store today"
+      return false
     end
-    elsif item != "quit"
-    puts "Sorry we don't have this item in store today"
+  else
+    puts "Sorry, we don't stock #{item} today"
+    return false
   end
 end
 
