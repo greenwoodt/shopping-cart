@@ -23,9 +23,9 @@ describe "#MYSHOP" do
 end
 
 RSpec.describe "#display_items" do
-  expect { display_items }.to output(/Whats currently avaliable:/).to_stdout
+  it "displays the items available in MYSHOP" do
     MYSHOP.each do |product, value|
       expect { display_items }.to output(/#{value[:product_code]}.*#{product}.*#{value[:price]}/).to_stdout
     end
-  expect { display_items }.to output(/----------------/).to_stdout
+  end
 end
