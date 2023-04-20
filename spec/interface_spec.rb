@@ -71,3 +71,19 @@ RSpec.describe "#MYSHOP" do
       expect(calculate_bill(basket)).to eq([22.46, ["CF1", "CF1", "CF1"]])
     end
   end
+
+  RSpec.describe "#run_shopping" do
+    before do
+      @input = StringIO.new("Coffee\n3\nquit\n")
+      $stdin = @input
+      allow(STDOUT).to receive(:puts)
+    end
+
+    after do
+      $stdin = STDIN
+    end
+
+    it "It calculates the total bill and displays it in the correct order" do
+      expect { run_shopping }.to output(/BASKET-TOTAL \|CF1, CF1, CF1\| TOTAL-COST: €14.97/).to_stdout
+    end
+  end
