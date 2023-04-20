@@ -34,7 +34,7 @@ def add_basket(basket, item, amount)
         MYSHOP["Strawberries"][:price] = 4.5
         total_bill += MYSHOP["Strawberries"][:price] * (basket["Strawberries"] - (basket["Strawberries"] % 3))
       end
-      if basket["Coffee"] >= 3
+      if item == "Coffee" && basket["Coffee"] >= 3
         MYSHOP["Coffee"][:price] = MYSHOP["Coffee"][:price] * Rational(2, 3)
         total_bill += MYSHOP["Coffee"][:price] * (basket["Coffee"] - (basket["Coffee"] % 3))
       end
