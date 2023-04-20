@@ -62,12 +62,14 @@ end
 
 puts "-------BILL---------"
 
-# Product codes are created into an array to store the hash values as a string.
-# This allows me to the Join method for the amount of products added by a user
-product_codes = []
-basket.each do |items, amount|
-  total_bill += MYSHOP[items][:price] * amount
-  product_codes += [MYSHOP[items][:product_code]] * amount
+def calculate_bill(basket)
+  total_bill = 0
+  product_codes = []
+  basket.each do |item, amount|
+    total_bill += MYSHOP[item][:price] * amount
+    product_codes += [MYSHOP[item][:product_code]] * amount
+  end
+  return total_bill.round(2), product_codes
 end
 
 puts "BASKET TOTAL |#{product_codes.join(', ')}| TOTAL PRICE: €#{total_bill.round(2)}"
