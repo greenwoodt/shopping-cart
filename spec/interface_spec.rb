@@ -64,3 +64,10 @@ RSpec.describe "#MYSHOP" do
       expect(MYSHOP["Coffee"][:price]).to eq(Rational(7.486666666666666))
     end
   end
+
+  RSpec.describe "#calculate_bill" do
+    it "Calculates the total bill correctly" do
+      basket = {"Coffee" => 3}
+      expect(calculate_bill(basket)).to eq([22.46, ["CF1", "CF1", "CF1"]])
+    end
+  end
