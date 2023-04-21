@@ -28,6 +28,8 @@ When prompted with: "How much would you like?"
 
 Users must type the quanity as an interger. Note: the :stock value means users might run out of stock of the number of items in the store.
 
+Users can type quit in interface to exit the program. 
+
 Special conditions/program behaviour:
 
 - If a user (the company CEO) buys a "Greentea", another is added to the basket free of charge not affecting the total-cost.
