@@ -24,6 +24,10 @@ When prompted with: "Which item would you like to buy today?"
 
 Users must type either "Greentea", "Strawberries" or "Coffee".
 
+When prompted with: "How much would you like?"
+
+Users must type the quanity as an interger. Note: the :stock value means users might run out of stock of the number of items in the store.
+
 Special conditions/program behaviour:
 
 - If a user (the company CEO) buys a "Greentea", another is added to the basket free of charge not affecting the total-cost.
