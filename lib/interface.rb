@@ -23,17 +23,18 @@ def add_basket(basket, item, amount)
 
       if item == "Greentea"
         basket[item] += amount
-
         if basket[item].even?
           MYSHOP[item][:price] = MYSHOP[item][:price] / 2
         else
           total_bill += MYSHOP[item][:price] / 2
         end
       end
+
       if basket["Strawberries"] >= 3
         MYSHOP["Strawberries"][:price] = 4.5
         total_bill += MYSHOP["Strawberries"][:price] * (basket["Strawberries"] - (basket["Strawberries"] % 3))
       end
+
       if item == "Coffee" && basket["Coffee"] >= 3
         MYSHOP["Coffee"][:price] = MYSHOP["Coffee"][:price] * Rational(2, 3)
         total_bill += MYSHOP["Coffee"][:price] * (basket["Coffee"] - (basket["Coffee"] % 3))
@@ -69,12 +70,9 @@ def run_shopping
   loop do
     puts "Which item would you like to buy today?"
     item = gets.chomp
-
     break if item == "quit"
-
     puts "How many would you like?" if MYSHOP.key?(item)
     amount = gets.chomp.to_i
-
     add_basket(basket, item, amount)
   end
 
