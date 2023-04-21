@@ -16,6 +16,10 @@ How to run the program:
 
 Users must call ruby lib/interface.rb in their terminal to initalize the program.
 
+```
+ruby lib/interface.rb 
+```
+
 When prompted with: "Which item would you like to buy today?"
 
 Users must type either "Greentea", "Strawberries" or "Coffee".
@@ -31,6 +35,10 @@ Special conditions/program behaviour:
 How to test the program:
 
 Users must call rspec in the terminal to conduct tests of the solution code. The program file interface.rb will initialze with its welcome message, users must type quit into the terminal to run the rspec file.
+
+```
+rspec
+```
 
 Test covered:
 
