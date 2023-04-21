@@ -12,7 +12,7 @@ Versions Covered:
 
 - Configuration: lib/interface.rb runs the program, while the spec/interface_spec.rb requires the interface.rb file to conduct tests on the solution code, testing a number of different scenarios.
 
-- How to run the program
+How to run the program:
 
 Users must call ruby lib/interface.rb in their terminal to initalize the program.
 
@@ -20,19 +20,19 @@ When prompted with: "Which item would you like to buy today?"
 
 Users must type either "Greentea", "Strawberries" or "Coffee".
 
-- Special conditions behaviour
+Special conditions/program behaviour:
 
-If a user (the company CEO) buys a "Greentea", another is added to the basket free of charge not affecting the total-cost.
+- If a user (the company CEO) buys a "Greentea", another is added to the basket free of charge not affecting the total-cost.
 
-If a user (the company COO) buys 3 or more "Strawberries", the price of those Strawberries drops to €4.5
+- If a user (the company COO) buys 3 or more "Strawberries", the price of those Strawberries drops to €4.5
 
-If a user (VP of Technology) buys 3 or more "Coffees", the price of all Coffees in the baskets will have a discount of two thirds off.
+- If a user (VP of Technology) buys 3 or more "Coffees", the price of all Coffees in the baskets will have a discount of two thirds off.
 
-- How to test the program
+How to test the program:
 
 Users must call rspec in the terminal to conduct tests of the solution code. The program file interface.rb will initialze with its welcome message, users must type quit into the terminal to run the rspec file.
 
-- Test covered
+Test covered:
 
 This program incorprates RSpec 6.0.1 to test 4 crucial segments of the interface.rb file.
 
